@@ -11,10 +11,12 @@ let email = document.querySelector("#email")
 let assunto = document.querySelector("#assunto")
 let mapa = document.querySelector("#mapa")
 let pcd = document.querySelector("#pcd")
+let estado = document.querySelector("#estado")
 let nomeOk = false
 let emailOk = false
 let assuntoOk = false
 let pcdOk = false
+let estadoOk =false
 
 
 nome.style.width = "100%"
@@ -59,21 +61,33 @@ function validaAssunto(){
     }
 }
 
-function pcd(){
+function validaEstado(){
+    let txtEstado = document.querySelector("#txtEstado")
+    if (estado.value == ""){
+        txtEstado.innerHTML = "Selecione seu Estado."
+        txtEstado.style.color="red"
+        txtEstado.style.display = "block"
+    }else{
+        txtEstado.style.display = "none"
+        estadoOk= true
+    }
+}
+
+function validaPcd(){
     let txtPCD = document.querySelector("#txtPCD")
-    if (document.querySelector.value[0].checked == false 
-        && document.querySelector.value[1].checked == false){
+    if (pcd.value[0].checked == false 
+        && pcd.value[1].checked == false){
         txtPCD.innerHTML = "Selecione a opção de PCD correta."
         txtPCD.style.color="red"
         txtPCD.style.display = "block"
     }else{
         txtPCD.style.display = "none"
-        pcdOk = true
+        pcdOk= true
     }
 }
 
 function enviar(){
-    if(nomeOk == true && emailOk == true && assuntoOk == true && pcdOk == true){
+    if(nomeOk == true && emailOk == true && assuntoOk == true && pcdOk == true && estadoOk == true){
         alert("Formulário enviado com sucesso!")
     }else{
         alert("Preencha o formulário corretamente!") 
@@ -89,6 +103,7 @@ function mapaNormal(){
     mapa.style.width = "600px"
     mapa.style.height= "450px"
 }
+
 
 
 
